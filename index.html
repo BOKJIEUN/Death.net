@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+	<title></title>
+
+	<style type="text/css">
+		body{margin: 0;
+			font-family: 'Noto Sans KR', sans-serif;}
+		.text-area{display: flex; height: 96vh;}
+		#sectionA{width: 25vw; padding-top: 20px;
+					border-right: solid 1px black;}
+			h1{margin: 0; height: 13%; text-align: center;
+				font-size:45px; font-weight: 700;
+				border-bottom: solid 1px black;}
+			#sectionB{margin: 0; height: 40%; padding-top: 4px; padding-left: 23px; padding-right: 30px; font-size:14px; word-break: keep-all; line-height: 26px;
+				border-bottom: solid 1px black;}
+			h2{font-weight: 500;}
+			p{font-weight: 400;}
+
+			.input-area{padding-left: 23px; font-size: 19px; 
+				padding-top: 20px; padding-bottom: 15px;}
+			input[type=text], select{ margin-bottom: 5px;
+				width: 300px; height: 30px; text-align: center;
+				border: 0; border-radius: 10px; outline: none;
+				background: black; color: white;}
+			input[type=button]{ margin-top: 0px; margin-bottom: 0px;
+				width: 300px; height: 30px; text-align: center;
+				border: 0; border-radius: 15px; outline: none;
+				background: #00FF00; color: black;}
+
+		footer{width: 100vw; height: 4vh; background: #00FF00; bottom: 0px; left: 0px; padding-top: 2px; text-align: center; display: block;}
+
+		#myMap{margin: 0; width: 75vw; background: black; 
+			background-image: url('bg.gif'); background-size : 30%;
+			color: white; text-align: center; font-size: 23px; 
+
+			}
+
+
+	</style>
+
+
+</head>
+<body>
+
+<div class="text-area">
+	<section id="sectionA">
+		<h1>돌연사.net</h1>
+			<section id="sectionB">
+				<h2>돌연-사 突然死</h2>
+				<p>[명사] 외관상 건강하였던 사람이 갑자기 죽는 일. 심장의 박동이 멎거나 본인이 모르는 사이에 진전된 질병의 증상이 나타나 발병 24시간 이내에 죽는다. <br> 돌연사.net은 노동자의 죽음을 아카이브하고 ‘점’을 형성함으로써 시각적 지도를 그려, 노동 문제에 대해 경각심을 일깨우고 대중들의 관심을 촉구하기 위한 프로젝트 입니다. </p>
+			</section>
+		<section class="input-area">
+		<input type="text" id="putName" placeholder="이름을 입력해 주세요.">
+		</h3> <input type="text" id="putAge" placeholder="사망나이를 입력해 주세요. (숫자만)">
+		<input type="text" id="putYear" placeholder="사망연도를 입력해 주세요. (끝 두 자리만)">
+		<select id="putReg">
+		<option value="200">서울</option>
+    		<option value="250">경기</option>
+   		<option value="300">강원</option>
+    		<option value="350">충남</option>
+    		<option value="400">충북</option>
+    		<option value="450">전남</option>
+    		<option value="500">전북</option>
+    		<option value="550">경남</option>
+    		<option value="600">경북</option>
+    		<option value="650">제주</option>
+		</select>
+		<input type="text" id="putWhy" placeholder="사망 원인을 간단히 적어주세요.">
+		<br><br><input type="button" id="myButton" value="생성">
+		</section>
+
+	</section>
+
+	<div id="myMap"></div>
+</div>
+
+	<footer>본 웹페이지는 정세랑 단편소설 <보늬>에 등장하는 ʻ돌연사.net’에서 아이디어를 얻어 제작 되었습니다. Copyright 2022 All rights reserved BOK JIEUN</footer>
+
+
+ <script type="text/javascript">
+                        
+
+                        myButton.onclick = function(){
+                                var dot = document.createElement("div");
+                                var dotWidth = 0 + Number(putAge.value);
+                                var dotLeft = 50 * Number(putYear.value);
+                                var dotTop = 0 + Number(putReg.value);
+
+                                dot.id = "newDot" 
+                                dot.style.background= "white";
+                                dot.style.width = dotWidth + "px";
+                                dot.style.height = dotWidth + "px";
+                                dot.style.left = dotLeft + "px";
+                                dot.style.top = dotTop + "px";
+                                dot.style.borderRadius = "50%"; 
+                                dot.style.background = "#00FF00"; 
+                                dot.style.position = "absolute";
+                            
+	                        dot.onmouseover = function(e){	
+	                        let myName = putName.value
+	                        let myAge = putAge.value
+	                        let myWhy = putWhy.value
+	                        myMap.innerHTML = myName + "씨는 " + myAge + "세의 나이로 사망하셨습니다." + " 사망원인은 " + myWhy + "입니다.";
+
+	                        console.log(myName + "씨는 " + myAge + "세의 나이로 사망하셨습니다." + " 사망원인은 " + myWhy + "입니다.");
+
+				}
+			
+				myMap.appendChild(dot);
+                     	}
+
+                        
+                </script>
+
+
+
+
+</body>
+</html>
