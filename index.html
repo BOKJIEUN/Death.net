@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+	<title></title>
+
+	<style type="text/css">
+		body{margin: 0;
+			font-family: 'Noto Sans KR', sans-serif;}
+		.text-area{display: flex; height: 96vh;}
+		#sectionA{width: 25vw; padding-top: 20px;
+					border-right: solid 1px black;}
+			h1{margin: 0; height: 13%; text-align: center;
+				font-size:45px; font-weight: 700;
+				border-bottom: solid 1px black;}
+			#sectionB{margin: 0; height: 40%; padding-top: 4px; padding-left: 23px; padding-right: 30px; font-size:14px; word-break: keep-all; line-height: 26px;
+				border-bottom: solid 1px black;}
+			h2{font-weight: 500;}
+			p{font-weight: 400;}
+
+			.input-area{padding-left: 13%; font-size: 19px; 
+				padding-top: 7%;}
+			input[type=text], select{margin-bottom: 3%;
+				width: 85%; height: 40px; text-align: center;
+				border: 0; border-radius: 20px; outline: none;
+				background: black; color: white;}
+			input[type=button]{ margin-top: 0px; margin-bottom: 0px;
+				width: 85%; height: 40px; text-align: center;
+				border: 0; border-radius: 20px; outline: none;
+				background: #00FF00; color: black;}
+
+		footer{width: 100vw; height: 4vh; background: #00FF00; bottom: 0px; left: 0px; padding-top: 2px; text-align: center; display: block;}
+
+		#myMap{margin: 0; width: 75vw; background: black; 
+			background-image: url('bg.gif'); background-size : 30%;
+			color: white; text-align: center; font-size: 23px; }
+
+		.d{border-radius: 50%; background:#00FF00; 
+		position: absolute; z-index: 30;}
+		.d:hover{box-shadow:0 0 15px #00FF00;}
+
+		#d1{width: 32px; height: 32px; top: 10%; left: 60%;
+		}
+		#d2{width: 68px; height: 68px; top: 10%; left: 68%;
+		}
+		#d3{width: 53px; height: 53px; top: 75%; left: 52%;
+		}
+		#d4{width: 28px; height: 28px; top: 40%; left: 76%;
+		}
+		#d5{width: 31px; height: 31px; top: 35%; left: 40%;
+		}
+		#d6{width: 40px; height: 40px; top: 20%; left: 44%;
+		}
+		#d7{width: 23px; height: 23px; top: 30%; left: 68%;
+		}
+		#d8{width: 49px; height: 49px; top: 50%; left: 88%;
+		}
+
+		#infoBox{width: auto; height: auto; 
+			text-align: center; padding: 10px; color: #00FF00; 
+			font-weight: 700; font-size: 22px;}
+ 
+
+
+	</style>
+
+
+</head>
+<body>
+
+<div class="text-area">
+	<section id="sectionA">
+		<h1>돌연사.net</h1>
+			<section id="sectionB">
+				<h2>돌연-사 突然死</h2>
+				<p>[명사] 외관상 건강하였던 사람이 갑자기 죽는 일. 심장의 박동이 멎거나 본인이 모르는 사이에 진전된 질병의 증상이 나타나 발병 24시간 이내에 죽는다. <br> 돌연사.net은 노동자의 죽음을 아카이브하고 ‘점’을 형성함으로써 시각적 지도를 그려, 노동 문제에 대해 경각심을 일깨우고 대중들의 관심을 촉구하기 위한 프로젝트 입니다. </p>
+			</section>
+		<section class="input-area">
+
+		<input type="text" id="putName" placeholder="이름을 입력해 주세요.">
+		</h3> <input type="text" id="putAge" placeholder="사망나이를 입력해 주세요. (숫자만)">
+		<input type="text" id="putYear" placeholder="사망연도를 입력해 주세요. (끝 두 자리만)">
+		<select id="putReg">
+		<option value="10">서울</option>
+    		<option value="20">경기</option>
+   		<option value="30">강원</option>
+    		<option value="45">충남</option>
+    		<option value="50">충북</option>
+    		<option value="65">전남</option>
+    		<option value="70">전북</option>
+    		<option value="80">경남</option>
+    		<option value="85">경북</option>
+    		<option value="90">제주</option>
+		</select>
+		<input type="text" id="putWhy" placeholder="사망 원인을 간단히 적어주세요.">
+		<br><br><input type="button" id="myButton" value="생성">
+
+		</section>
+
+	</section>
+
+	<div id="myMap">
+		<div id="infoBox"></div>
+		<div  class="d" id="d1" 
+		data-name="이보늬" data-age="32" data-why="잦은 심야근무와 과로"></div>
+		<div class="d" id="d2" 
+		data-name="윤희상" data-age="68" data-why="아파트 재개발 정비 공사장에서 추락"></div>
+		<div class="d" id="d3"
+		data-name="백영민" data-age="53" data-why="월드컵대교 공사현장에서 추락해, 한강에 빠져서"></div>
+		<div class="d" id="d4"
+		data-name="시지트 레스탈루" data-age="28" data-why="종이 박스 공장에서 혹사"></div>
+		<div class="d" id="d5"
+		data-name="최창민" data-age="31" data-why="배달기사 근무 중 오토바이 사고로"></div>
+		<div class="d" id="d6"
+		data-name="신미래" data-age="40" data-why="택배 노동자 혹사"></div>
+		<div class="d" id="d7"
+		data-name="김경인" data-age="23" data-why="포장재 공장에서 일하던 중 기계에 몸이 끼어서"></div>
+		<div class="d" id="d8"
+		data-name="이희옥" data-age="49" data-why="건설현장 청소 중 승강기에 깔려서"></div>
+	</div>
+</div>
+
+	<footer>본 웹페이지는 정세랑 단편소설 <보늬>에 등장하는 ʻ돌연사.net’에서 아이디어를 얻어 제작 되었습니다. Copyright 2022 All rights reserved BOK JIEUN</footer>
+
+
+ <script type="text/javascript">
+                        
+
+                        myButton.onclick = function(){
+                                var dot = document.createElement("div");
+                                var dotWidth = 0 + Number(putAge.value);
+                                var dotLeft = 4 * Number(putYear.value);
+                                var dotTop = 0 + Number(putReg.value);
+
+                                dot.id = "newDot" 
+                                dot.style.background= "white";
+                                dot.style.width = dotWidth + "px";
+                                dot.style.height = dotWidth + "px";
+                                dot.style.left = dotLeft + "%";
+                                dot.style.top = dotTop + "%";
+                                dot.style.borderRadius = "50%"; 
+                                dot.style.background = "#00FF00"; 
+                                dot.style.position = "absolute";
+                                //
+                                dot.dataset.name = putName.value;
+                                dot.dataset.age = putAge.value;
+                                dot.dataset.why = putWhy.value;
+                            
+	                        dot.onmouseover = function(e){
+
+	                        let myName = this.dataset.name;
+	                        let myAge = this.dataset.age;
+	                        let myWhy = this.dataset.why;
+	                        infoBox.innerHTML = myName + "씨는 " + myAge + "세의 나이로 사망하셨습니다." + " 사망원인은 " + myWhy + "입니다." 
+	                        this.style.boxShadow = "0px 0px 15px #00FF00"; 
+				}
+				dot.onmouseout = function(e){dot.style.boxShadow = "none";}
+			
+				myMap.appendChild(dot);
+                     	}
+
+                     	d1.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+
+	                d2.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+
+	                d3.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+                        
+                         d4.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+
+	                 d5.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+
+	                 d6.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+
+	                 d7.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+                        
+                         d8.onmouseover = function(e){
+                     		var a = this.dataset.name
+                     		var b = this.dataset.age
+                     		var c = this.dataset.why
+	                infoBox.innerHTML = a + "씨는 " + b + "세의 나이로 사망하셨습니다." + " 사망원인은 " + c + "입니다." ;}
+                        
+                        
+                </script>
+
+
+
+
+</body>
+</html>
